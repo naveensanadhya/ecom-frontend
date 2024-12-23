@@ -5,9 +5,18 @@ import io from "socket.io-client";
 
 const socket = io(process.env.NEXT_PUBLIC_SOCKET_URL);
 
+interface Product {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  __v: number;
+}
+
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
