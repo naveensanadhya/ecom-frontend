@@ -1,12 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import withAuth from "../components/withAuth";
 import api from "../utils/api";
 
 const Cart = () => {
-  const [cart, setCart] = useState();
-  const router = useRouter();
+  const [cart, setCart] = useState(null);
   useEffect(() => {
     const fetchCart = async () => {
       try {
@@ -31,9 +30,11 @@ const Cart = () => {
           {cart?.items?.length > 0 &&
             cart?.items?.map((item: any) => (
               <div
-                key={item?.productId}
+                key={item?.productId?._id}
                 className="flex items-center justify-between border"
-              ></div>
+              >
+                {item?.productId?.name}
+              </div>
             ))}
         </div>
       </div>
