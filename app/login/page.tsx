@@ -27,7 +27,6 @@ const Login = () => {
         setIsLoading(false);
         localStorage.setItem("token", response?.data?.token);
         router.push("/");
-        console.log("Response: ", response);
       }
     } catch (exception) {
       setIsLoading(false);

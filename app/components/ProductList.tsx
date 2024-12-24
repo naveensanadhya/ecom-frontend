@@ -22,7 +22,6 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         const response = await api.get("/products");
-        console.log("Response: ", response);
         setProducts(response?.data?.products);
       } catch (exception: any) {
         console.log("Exception: ", exception);
@@ -41,7 +40,6 @@ const ProductList = () => {
     });
 
     socket.on("stockUpdate", (data) => {
-      console.log("Stock Update: ", data);
       setProducts((prevProducts: any[]) =>
         prevProducts.map((product) =>
           product._id === data.productId
@@ -57,11 +55,10 @@ const ProductList = () => {
 
   const handleAddToCart = async (productId: string) => {
     try {
-      const response = await api.post("/cart/add", {
+      await api.post("/cart/add", {
         productId,
         quantity: 1,
       });
-      console.log("Response: ", response);
     } catch (exception: any) {
       console.log("Exception: ", exception);
       setError(exception?.message || "Failed to Add Cart");
@@ -84,7 +81,7 @@ const ProductList = () => {
                 </p>
                 <p
                   className={
-                    product?.stock > 0 ? "text-green-600" : "text-red-100"
+                    product?.stock > 0 ? "text-green-600" : "text-red-600"
                   }
                 >
                   {product?.stock > 0
