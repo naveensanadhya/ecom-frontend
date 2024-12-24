@@ -1,7 +1,41 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# E-commerce Frontend (ecom-frontend)
 
+This is a Ecommerce frontend project built with Next.js 15, React 19, and Tailwind CSS.
+
+## Prerequisites
+
+Make sure you have the following installed on your system:
+
+- Node.js
+- npm (Node Package Manager)
+
+## Installation
+
+1. Clone the repository:
+
+   git clone https://github.com/naveensanadhya/ecom-frontend.git
+
+2. Navigate to the project directory:
+
+   cd ecom-frontend
+
+3. Install the dependencies:
+
+   npm install
+
+4. Create a .env file and fill in the required environment variables:
+
+   cp env.example .env
+
+5. Fill in the .env file with your specific configuration:
+
+   - NEXT_PUBLIC_BACKEND_URL=your-backend-url 
+   - NEXT_PUBLIC_SOCKET_URL=your-socket-url
+   - NEXT_PUBLIC_JWT_SECRET=your-jwt-secret
+
+## Running the Application
 First, run the development server:
 
 ```bash
